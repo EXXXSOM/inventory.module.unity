@@ -21,7 +21,6 @@ namespace EXSOM.Inventory
 
         public void OnDrop(PointerEventData eventData)
         {
-            Debug.Log("Use Item");
             inventory.SetActiveItem(this);
         }
     }
