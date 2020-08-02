@@ -1,0 +1,4 @@
+﻿interface IContainerCell
+{
+    //Сheck marker
+}

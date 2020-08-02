@@ -1,0 +1,4 @@
+﻿interface IContainerActive
+{
+    //Сheck marker
+}
