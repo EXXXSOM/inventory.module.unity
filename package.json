@@ -1,6 +1,6 @@
 {
   "name": "com.exxxsom.inventory",
-  "version": "1.1.0-preview.1",
+  "version": "1.1.0",
   "displayName": "Inventory",
   "description": "Flexible inventory mechanics for the Unity engine.",
   "unity": "2019.4",
