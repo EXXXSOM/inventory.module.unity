@@ -1,9 +1,22 @@
 {
-    "name": "com.unity.package-4",
-    "displayName": "Package Number 4",
-    "version": "2.5.1",
-    "unity": "2018.1",
-    "description": "This package provides X, Y, and Z. \n\nTo find out more, click the \"View Documentation\" link.",
-    "keywords": ["key X", "key Y", "key Z"],
-    "category": "Controllers",
+    "name": "com.pixeye.ecs",
+    "author": "Pixeye",
+    "displayName": "Actors",
+    "description": "🚀 Actors is a framework empowering developers to make better games faster on Unity.",
+    "unity": "2019.4",
+    "version": "2020.11.21",
+    "keywords": [
+        "ecs",
+        "pixeye",
+        "performance",
+        "unity",
+        "integration",
+	"actors",
+	"workflow"
+    ],
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EXXXSOM/inventory.module.unity.git"
+    }
 }
