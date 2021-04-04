@@ -19,5 +19,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/EXXXSOM/unity.dep.git"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Sample 1",
+      "description": "Description for sample 1.",
+      "path": "Runtime/Demo"
+    }
+  ]
 }
