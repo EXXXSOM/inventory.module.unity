@@ -1,19 +1,23 @@
 {
-    "name": "com.exxxsom.inventory",
-    "author": "EXXXSOM",
-    "displayName": "Inventory",
-    "description": "Flexible inventory mechanics for the Unity engine.",
-    "unity": "2019.4",
-    "version": "2020.11.21",
-    "keywords": [
-        "inventory",
-        "exxxsom",
-        "unity",
-        "integration"
-    ],
-    "dependencies": {},
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/EXXXSOM/unity.dep.git"
-    }
+  "name": "com.exxxsom.inventory",
+  "version": "1.0-preview.1",
+  "author": {
+    "name": "EXXXSOM",
+    "email": "mail.exsom@gmail.com",
+    "url": "https://www.exsomstudio.com/ru/"
+  },
+  "displayName": "Inventory",
+  "description": "Flexible inventory mechanics for the Unity engine.",
+  "unity": "2019.4",
+  "keywords": [
+    "inventory",
+    "exxxsom",
+    "unity",
+    "integration"
+  ],
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EXXXSOM/unity.dep.git"
+  }
 }
