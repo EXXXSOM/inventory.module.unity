@@ -70,7 +70,11 @@ public class FlexibleGridLayout : LayoutGroup
             SetChildAlongAxis(item, 0, xPos, cellsize.x);
             SetChildAlongAxis(item, 1, yPos, cellsize.y);
         }
+
+        CalculateGridContent(cellsize);
     }
+
+    public virtual void CalculateGridContent(Vector2 cellSize) {}
 
     public override void SetLayoutHorizontal()
     {

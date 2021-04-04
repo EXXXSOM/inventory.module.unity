@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace EXSOM.Inventory
 {
-    public class ItemUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class ItemUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
     {
         public CellInventory CellInventory;
         private Inventory inventory;
@@ -19,31 +19,61 @@ namespace EXSOM.Inventory
             CellInventory = cellInventory;
         }
 
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Debug.Log("Выбран элемент: " + name);
+                inventory.SelectedItem(this);
+            }
+
+            if (Input.GetMouseButton(1))
+            {
+                Debug.Log("Вызов меню у элемента: " + name);
+
+                inventory.ShowTipMenu(this);
+                inventory.SelectedItem(this);
+            }
+        }
+
         public void OnBeginDrag(PointerEventData eventData)
         {
-            inventory.SelectedItem(this);
+            if (Input.GetMouseButton(0))
+            {
+                Debug.Log("Перетаскивание начато");
 
-            GetComponent<Image>().raycastTarget = false;
-            transform.SetParent(inventory.transform);
+                inventory.dragItem = true;
+                GetComponent<Image>().raycastTarget = false;
+                transform.SetParent(inventory.transform);
+            }
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            transform.position = Input.mousePosition;
+            if (inventory.dragItem)
+            {
+                Debug.Log("Перетягиваем!");
+                transform.position = Input.mousePosition;
+            }
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (inventory.swapingItem == true)
+            if (inventory.dragItem)
             {
-                inventory.swapingItem = false;
-                GetComponent<Image>().raycastTarget = true;
-            }
-            else
-            {
-                //Return in this cell
-                transform.SetParent(CellInventory.transform);
-                GetComponent<Image>().raycastTarget = true;
+                Debug.Log("Перетаскивание законченно!");
+                if (inventory.swapingItem == true)
+                {
+                    inventory.swapingItem = false;
+                    GetComponent<Image>().raycastTarget = true;
+                }
+                else
+                {
+                    //Return in this cell
+                    transform.SetParent(CellInventory.transform);
+                    GetComponent<Image>().raycastTarget = true;
+                }
+                inventory.dragItem = false;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace EXSOM.Inventory
 {
@@ -17,35 +18,59 @@ namespace EXSOM.Inventory
 
         //Inventory сustomization options
         [Header("Inventory settings")]
-        public bool UseWeight = false;
+        public bool UseWeight = true;
+        public bool UseActiveSlots = true;
         public int TotalWeightMax = 100;
         public const int InventoryCellsCount = 3;
         public const int InventoryActiveCellsCount = 4;
-        public GameObject ItemUITemplate;
+        public GameObject ItemUITemplate; //Set prefab "Cell"
 
         //Class working fields
         [Header("Inventory stats")]
         [SerializeField] private int totalWeight = 0;
         [SerializeField] private int totalItemsCount = 0;
+        public bool dragItem = false;
 
         private List<Item> items = new List<Item>(InventoryCellsCount);
         [SerializeField] private List<CellInventory> cells = new List<CellInventory>(InventoryCellsCount);
         [SerializeField] private List<CellUsedItem> activeCells = new List<CellUsedItem>();
 
-        public bool swapingItem = false;
+        [HideInInspector] public bool swapingItem = false;
         private ItemUI selectedItemUI;
         private CellInventory selectedCell;
 
+        //References gameobjects
+        [Header("Inventory stats")]
+        public Text nameItem;
+        public Text discriptionItem;
+        public TipMenu tipMenu;
+
         private void Awake()
         {
+#if UNITY_EDITOR
+            if (ItemUITemplate == null)
+            {
+                Debug.LogWarning("Not installed prefab!");
+            }
+            if (tipMenu == null)
+            {
+                Debug.LogWarning("Not installed TipMenu!");
+            }
+#endif
+
+
+            CellInventory cell = cells[0]; 
             for (int i = 0; i < cells.Count; i++)
             {
                 cells[i].Initialization(this);
             }
 
-            for (int i = 0; i < activeCells.Count; i++)
+            if (UseActiveSlots)
             {
-                activeCells[i].Initialization(this);
+                for (int i = 0; i < activeCells.Count; i++)
+                {
+                    activeCells[i].Initialization(this);
+                }
             }
         }
 
@@ -107,6 +132,9 @@ namespace EXSOM.Inventory
         {
             selectedItemUI = itemUI;
             selectedCell = itemUI.CellInventory;
+
+            nameItem.text = itemUI.Item.keyName;
+            discriptionItem.text = itemUI.Item.keyDiscription;
         }
 
         //Moves an item to a slot
@@ -143,6 +171,16 @@ namespace EXSOM.Inventory
             ItemUI saveItemUI = firstCell.ItemUI;
             firstCell.SetItem(secondCell.ItemUI);
             secondCell.SetItem(saveItemUI);
+        }
+
+        public void ShowTipMenu(ItemUI itemUI)
+        {
+            tipMenu.Show(itemUI);
+        }
+
+        public void CloseTipMenu()
+        {
+            tipMenu.Close();
         }
     }
 }

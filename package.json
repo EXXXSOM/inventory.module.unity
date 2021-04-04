@@ -1,0 +1,19 @@
+{
+    "name": "com.exxxsom.inventory",
+    "author": "EXXXSOM",
+    "displayName": "Inventory",
+    "description": "Flexible inventory mechanics for the Unity engine.",
+    "unity": "2019.4",
+    "version": "2020.11.21",
+    "keywords": [
+        "inventory",
+        "exxxsom",
+        "unity",
+        "integration"
+    ],
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EXXXSOM/inventory.module.unity.git"
+    }
+}

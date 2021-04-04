@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace EXSOM.Inventory
 {
@@ -41,7 +42,10 @@ namespace EXSOM.Inventory
 
         public void OnDrop(PointerEventData eventData)
         {
-            inventory.SwapItem(this);
+            if (inventory.dragItem == true)
+            {
+                inventory.SwapItem(this);
+            }
         }
     }
 }
