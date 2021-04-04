@@ -1,0 +1,16 @@
+﻿{
+  "name": "EXXXSOM.Inventory.Editor",
+  "references": [
+    "EXXXSOM.Inventory"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": []
+}
