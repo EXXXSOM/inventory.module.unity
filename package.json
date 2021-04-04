@@ -1,6 +1,6 @@
 {
   "name": "com.exxxsom.inventory",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "displayName": "Inventory",
   "description": "Flexible inventory mechanics for the Unity engine.",
   "unity": "2019.4",
@@ -20,6 +20,7 @@
     "type": "git",
     "url": "https://github.com/EXXXSOM/unity.dep.git"
   },
+  "src": "WHAT",
   "samples": [
     {
       "displayName": "Sample 1",
